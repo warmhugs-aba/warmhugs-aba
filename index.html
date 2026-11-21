@@ -802,7 +802,9 @@
     return el ? el.value.trim() : '';
   }
   function validEmail(v){
-    return v && v.indexOf('@') > 0 && v.indexOf('.') > v.indexOf('@');
+    if(!v || /\s/.test(v)) return false;
+    var at = v.indexOf('@');
+    return at > 0 && v.lastIndexOf('.') > at + 1 && v.length - v.lastIndexOf('.') > 1;
   }
 
   /* Show the ABA hours question only when the child has had ABA before */
