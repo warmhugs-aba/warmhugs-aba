@@ -410,7 +410,7 @@
   <div class="waitlist-zone">
     <div class="wrap">
       <div class="waitlist-top" id="waitlist">
-        <form class="reg" id="waitlistForm" method="POST" action="https://formsubmit.co/operations@warmhugsaba.org" novalidate>
+        <form class="reg" id="waitlistForm" method="POST" action="https://formsubmit.co/a.thabata@warmhugsaba.org" novalidate>
           <input type="hidden" name="_subject" value="New Waitlist Signup — Warm Hugs website" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_next" value="https://warmhugsaba.org/#waitlist-thanks" />
@@ -418,7 +418,7 @@
           <input type="hidden" name="_replyto" id="replyToField" value="" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <h2>Join the waitlist</h2>
-          <p class="form-sub">One form, about a minute. Your name and email are required to hold a place. By submitting this form, you ask WarmHugs to contact you by email and phone about the waitlist and opening updates. You can ask us to stop at any time.</p>
+          <p class="form-sub">One form, about a minute. Your name, email, phone, your child's age, insurance, and where you'd like therapy are required to hold a place. By submitting this form, you ask WarmHugs to contact you by email and phone about the waitlist and opening updates. You can ask us to stop at any time.</p>
           <div class="fields">
             <div class="field">
               <label for="parentName">Parent / guardian name *</label>
@@ -430,12 +430,12 @@
             </div>
             <div class="field">
               <label for="parentPhone">Phone </label>
-              <input id="parentPhone" name="Phone" type="tel" autocomplete="tel" placeholder="Your phone number" />
+              <input id="parentPhone" name="Phone" type="tel" autocomplete="tel" placeholder="Your phone number" required />
               <span class="field-hint">We&rsquo;ll only use your number to reach you about your waitlist spot and opening news.</span>
             </div>
             <div class="field">
               <label for="childAge">Child&rsquo;s age</label>
-              <select id="childAge" name="Child's age">
+              <select id="childAge" name="Child's age" required>
                 <option value="">Select age&hellip;</option>
                 <option>Under 2</option>
                 <option>2</option><option>3</option><option>4</option><option>5</option>
@@ -446,7 +446,7 @@
             </div>
             <div class="field">
               <label for="insuranceName">Insurance name</label>
-              <input id="insuranceName" name="Insurance name" type="text" placeholder="e.g. Aetna, Humana, Medicaid plan name" />
+              <input id="insuranceName" name="Insurance name" type="text" placeholder="e.g. Aetna, Humana, Medicaid plan name" required />
             </div>
             <div class="field">
               <label for="autismLevel">Autism level <span class="opt">(if known)</span></label>
@@ -480,7 +480,7 @@
             </div>
             <div class="field">
               <label for="settingPref">Where would you like therapy?</label>
-              <select id="settingPref" name="Preferred setting">
+              <select id="settingPref" name="Preferred setting" required>
                 <option value="">Select one&hellip;</option>
                 <option>In the clinic (Kenner)</option>
                 <option>At school</option>
@@ -843,7 +843,7 @@
       document.getElementById('parentEmail').focus();
       return;
     }
-    var replyTo = document.getElementById('replyToField');
+    var childAge = val('childAge'); var insuranceName = val('insuranceName'); var settingPref = val('settingPref'); if(!parentPhone){e.preventDefault();errorBox.textContent='Please add your phone number — that is how we may reach you about your waitlist spot.';errorBox.style.display='block';document.getElementById('parentPhone').focus();return;} if(!childAge){e.preventDefault();errorBox.textContent='Please choose your child\'s age.';errorBox.style.display='block';document.getElementById('childAge').focus();return;} if(!insuranceName){e.preventDefault();errorBox.textContent='Please add your insurance name.';errorBox.style.display='block';document.getElementById('insuranceName').focus();return;} if(!settingPref){e.preventDefault();errorBox.textContent='Please choose where you\'d like therapy.';errorBox.style.display='block';document.getElementById('settingPref').focus();return;} var replyTo = document.getElementById('replyToField');
     if(replyTo) replyTo.value = parentEmail;
   });
 
