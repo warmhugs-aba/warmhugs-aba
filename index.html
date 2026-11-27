@@ -418,7 +418,7 @@
           <input type="hidden" name="_replyto" id="replyToField" value="" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <h2>Join the waitlist</h2>
-          <p class="form-sub">One form, about a minute. Your name, email, and phone number are required to hold a place. By submitting this form, you ask WarmHugs to contact you by email and phone about the waitlist and opening updates. You can ask us to stop at any time.</p>
+          <p class="form-sub">One form, about a minute. Your name and email are required to hold a place. By submitting this form, you ask WarmHugs to contact you by email and phone about the waitlist and opening updates. You can ask us to stop at any time.</p>
           <div class="fields">
             <div class="field">
               <label for="parentName">Parent / guardian name *</label>
@@ -429,8 +429,8 @@
               <input id="parentEmail" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required />
             </div>
             <div class="field">
-              <label for="parentPhone">Phone *</label>
-              <input id="parentPhone" name="Phone" type="tel" autocomplete="tel" placeholder="Your phone number" required />
+              <label for="parentPhone">Phone (optional)</label>
+              <input id="parentPhone" name="Phone" type="tel" autocomplete="tel" placeholder="Your phone number" />
               <span class="field-hint">We&rsquo;ll only use your number to reach you about your waitlist spot and opening news.</span>
             </div>
             <div class="field">
@@ -841,13 +841,6 @@
       errorBox.textContent = 'Please add a valid email address — that is how we will reach you.';
       errorBox.style.display = 'block';
       document.getElementById('parentEmail').focus();
-      return;
-    }
-    if(parentPhone.replace(/\D/g,'').length < 7){
-      e.preventDefault();
-      errorBox.textContent = 'Please add your phone number — we\u2019ll only use it to reach you about your waitlist spot and opening news.';
-      errorBox.style.display = 'block';
-      document.getElementById('parentPhone').focus();
       return;
     }
     var replyTo = document.getElementById('replyToField');
